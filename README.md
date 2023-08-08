@@ -3,4 +3,4 @@
 This is a colection for basic UI in Flutter.
 
 ##  1 . Design Palette
-![Alt text](image.png)
+<img src="image.png" alt="Design Palette" width="200" height="400">
