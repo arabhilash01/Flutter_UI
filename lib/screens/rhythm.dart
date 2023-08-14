@@ -12,7 +12,7 @@ class _RhythmState extends State<Rhythm> {
   List<Widget> tabs = [
     const RhythmHome(),
     const MusicLibrary(),
-    const RhythmHome(),
+    const MusicPlayer(),
     const RhythmHome(),
   ];
 
@@ -714,6 +714,164 @@ class RhythmCustomBottomNavBar extends StatelessWidget {
                 ),
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+class MusicPlayer extends StatelessWidget {
+  const MusicPlayer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                RotatedBox(
+                  quarterTurns: 45,
+                  child: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    color: Colors.white.withOpacity(0.7),
+                    size: 20,
+                  ),
+                ),
+                const Text(
+                  'Chill Collection',
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                ),
+                Icon(
+                  Icons.donut_small_sharp,
+                  color: Colors.white.withOpacity(0.7),
+                  size: 20,
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              image: const DecorationImage(
+                image: NetworkImage('https://i.scdn.co/image/ab67616d0000b273bfedccaca3c8425fdc0a7c73'),
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const SizedBox(
+              width: 350,
+              height: 350,
+            ),
+          ),
+          const Text(
+            'How do i say goodbye',
+            style: TextStyle(color: Colors.white, fontSize: 27, fontWeight: FontWeight.w600),
+          ),
+          Text(
+            'Dean Lewis',
+            style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 17, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 20),
+          Stack(
+            alignment: Alignment.centerLeft,
+            children: [
+              Container(
+                height: 4.5,
+                width: 340,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white.withOpacity(0.7),
+                ),
+              ),
+              Container(
+                height: 5,
+                width: 250,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '2:53',
+                  style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 15, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  '-1:34',
+                  style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 15, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          RichText(
+            text: TextSpan(
+                text: 'Next : ',
+                style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 15, fontWeight: FontWeight.w600),
+                children: const [
+                  TextSpan(
+                      text: 'Shake it Off (Taylor Swift)',
+                      style: TextStyle(color: Colors.green, fontSize: 15, fontWeight: FontWeight.w600))
+                ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.favorite_border,
+                  color: Colors.white.withOpacity(0.7),
+                ),
+                Icon(
+                  Icons.arrow_back_ios_sharp,
+                  color: Colors.white.withOpacity(0.9),
+                  size: 40,
+                ),
+                const Icon(
+                  Icons.play_circle_filled_rounded,
+                  color: Colors.white,
+                  size: 70,
+                ),
+                Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  color: Colors.white.withOpacity(0.9),
+                  size: 40,
+                ),
+                Icon(
+                  Icons.share,
+                  color: Colors.white.withOpacity(0.7),
+                )
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              Text(
+                'Lyrics',
+                style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              RotatedBox(
+                quarterTurns: 45,
+                child: Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.white.withOpacity(0.7),
+                  size: 20,
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
