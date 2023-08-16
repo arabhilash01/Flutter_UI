@@ -13,7 +13,7 @@ class _RhythmState extends State<Rhythm> {
     const RhythmHome(),
     const MusicLibrary(),
     const MusicPlayer(),
-    const RhythmHome(),
+    const UserProfile(),
   ];
 
   @override
@@ -706,8 +706,8 @@ class RhythmCustomBottomNavBar extends StatelessWidget {
               onTap: () => onChangeIndex(index),
               child: AnimatedScale(
                 curve: Curves.easeIn,
-                duration: const Duration(seconds: 1),
-                scale: selectedIndex == index ? 1.5 : 1,
+                duration: const Duration(milliseconds: 500),
+                scale: selectedIndex == index ? 1.25 : 1,
                 child: Icon(
                   _icons[index],
                   color: selectedIndex == index ? Colors.green : Colors.white,
@@ -871,6 +871,149 @@ class MusicPlayer extends StatelessWidget {
                 ),
               ),
             ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class UserProfile extends StatelessWidget {
+  const UserProfile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Profile',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                Icon(
+                  Icons.view_compact_sharp,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const CircleAvatar(
+            radius: 60,
+            backgroundImage: NetworkImage(
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WIyDQ1KhiN5FFd3jcHZ1IzjYpC-OFdl7AXH6lFmMsJKK4Y476a_Kr4rxe4iI8kv4pywX&s'),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Katty Perry',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.white38),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Edit Profile',
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 2,
+            width: double.infinity,
+            color: Colors.white12,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      '742',
+                      style: TextStyle(
+                        color: Colors.white30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Fav Song',
+                      style: TextStyle(
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      '17.8M',
+                      style: TextStyle(
+                        color: Colors.white30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Followers',
+                      style: TextStyle(
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      '2.6k',
+                      style: TextStyle(
+                        color: Colors.white30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Following',
+                      style: TextStyle(
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 2,
+            width: double.infinity,
+            color: Colors.white12,
           )
         ],
       ),
