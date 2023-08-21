@@ -18,6 +18,7 @@ This is a collection of basic UI in Flutter.
         <img src="image-3.png" alt="Rhythm" width="200" height="400">
         <img src="image-2.png" alt="Rhythm" width="200" height="400">
         <img src="image-4.png" alt="Rhythm" width="200" height="400">
+        <img src="image-5.png" alt="Rhythm" width="200" height="400">
         <p>Inspiration - <a href="https://dribbble.com/shots/19117673-Music-App">Music App</a></p>
     </div>
 </div>

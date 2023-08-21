@@ -883,6 +883,36 @@ class UserProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> personalPlaylistData = [
+      {
+        "song": "Paris",
+        "artist": "The Chainsmokers",
+        "poster":
+            "https://static.displate.com/280x392/displate/2021-07-29/36f8c01c6d1c71df9a60daba0e9d70b4_d8c7b0469db87ee96fc6e59fc5d6c7ff.jpg",
+      },
+      {
+        "song": "Ghost",
+        "artist": "Ella Henderson",
+        "poster":
+            "https://upload.wikimedia.org/wikipedia/en/e/ee/Ella_Henderson_-_Ghost_%28Official_Single_Cover%29.png",
+      },
+      {
+        "song": "End Game",
+        "artist": "Taylor Swift",
+        "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiFcZmV11vYDsPtO_tNMFYqFDWihk51IoBudH7_6I1&s",
+      },
+      {
+        "song": "What do you mean",
+        "artist": "Justin Bieber",
+        "poster":
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdd8nQYTI755gt4Ui693JLrYf5T1FfSGaXRvm7mg8jyw&s",
+      },
+      {
+        "song": "Hello",
+        "artist": "Adele",
+        "poster": "https://i.pinimg.com/736x/5f/5f/9f/5f5f9f496df21968344f080c30e3bb6d.jpg",
+      },
+    ];
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -961,7 +991,7 @@ class UserProfile extends StatelessWidget {
                     Text(
                       '742',
                       style: TextStyle(
-                        color: Colors.white30,
+                        color: Colors.white38,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -978,7 +1008,7 @@ class UserProfile extends StatelessWidget {
                     Text(
                       '17.8M',
                       style: TextStyle(
-                        color: Colors.white30,
+                        color: Colors.white38,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -995,7 +1025,7 @@ class UserProfile extends StatelessWidget {
                     Text(
                       '2.6k',
                       style: TextStyle(
-                        color: Colors.white30,
+                        color: Colors.white38,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -1014,7 +1044,38 @@ class UserProfile extends StatelessWidget {
             height: 2,
             width: double.infinity,
             color: Colors.white12,
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+            child: Row(
+              children: [
+                const Text(
+                  'Personal Playlist',
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                ),
+                const Spacer(),
+                Text(
+                  'See all',
+                  style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 15),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: Colors.white.withOpacity(0.5),
+                  size: 15,
+                )
+              ],
+            ),
+          ),
+          for (var i in personalPlaylistData)
+            PlaylistCard(
+              owner: i['artist'] as String,
+              playListName: i['song'] as String,
+              posterImage: i['poster'] as String,
+              songCount: "from Fav",
+            )
         ],
       ),
     );
